@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(160, 246, 217);
+    color: rgb(3, 63, 63);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+   text-align: center;
+   flex-direction: column;
+}
+.navbar{
+    background-color: rgb(45, 72, 63);
+    color: aliceblue;
+    width: 100vw;
+   padding: 2rem 0;
+   position: fixed;
+   top: 0;
+}
+.title{
+    margin-bottom: 1.2rem;
+}
+.line{
+    background-color: brown;
+    height: 1rem;
+    width: 100vw;
+    position: fixed;
+    top: 100px;
+    
+}
+.main{
+    padding-top: 8rem;
+
+}
