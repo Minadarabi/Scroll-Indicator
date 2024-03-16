@@ -5,6 +5,7 @@ export const Scroll = () => {
     const [products , setProducts] = useState([])
     const [loading , setLoading] = useState(true)
     const [errMessage , setErrMessage] = useState("")
+    const [scroll , setScroll] = useState(0)
 
     async function fetchData () {
         try {
@@ -30,9 +31,19 @@ export const Scroll = () => {
     }
 
     useEffect(()=>{
-        fetchData()
+        fetchData();
 
-    },[])
+        const updateScroll = ()=>{
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            const update = (scrolled / scrollHeight) * 100;
+
+            setScroll(update)
+        };
+        window.addEventListener("scroll" , updateScroll)
+
+    },[]);
+
   return (
     <div className='main'>
         <div className='navbar'>
@@ -40,7 +51,7 @@ export const Scroll = () => {
             
 
         </div>
-        <span className='line'></span>
+        <span className='line' style={{width: `${scroll}%`}}></span>
         <div className='scroll-container'>
             {loading && <p>Loading...</p>}
             {errMessage && <p>{errMessage}</p>}
